@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/images/css1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.header, .main, .footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #e74c3c;
+    transform: scale(1.1);
+}
+
+@keyframes buttonAnimation {
+    from {
+        transform: scale(1);
+        background-color: #3498db;
+    }
+    to {
+        transform: scale(1.1);
+        background-color: #e74c3c;
+    }
+}
+
+.button-animated {
+    animation: buttonAnimation 2s ease-in-out infinite alternate;
+}
+
+.main-title, .main-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.container:hover .main-title, .container:hover .main-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+/* Técnicas Avanzadas */
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #e74c3c;
+}
+
+.button {
+    background-color: var(--primary-color);
+    mix-blend-mode: difference; /* Modo de fusión */
+    border-radius: 10px; /* Recorte */
+}
+
+.gradient-background {
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    mask: radial-gradient(circle, transparent 60%, black 100%); /* Enmascaramiento */
+}
+
+.footer {
+    margin-top: auto; /* Empuja el footer hacia la parte inferior */
+}
